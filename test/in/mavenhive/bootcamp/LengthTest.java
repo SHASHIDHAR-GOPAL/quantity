@@ -1,41 +1,34 @@
 package in.mavenhive.bootcamp;
-
 import org.junit.jupiter.api.Test;
 
+import static in.mavenhive.bootcamp.Quantity.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LengthTest {
 
     @Test
     void expectOneMeterToBeEqualToOneMeter() {
-        Length oneMeter = new Length(1, Unit.METER);
-        assertEquals(new Length(1,Unit.METER), oneMeter);
+        assertEquals(meter(1), meter(1));
     }
 
     @Test
     void expectOneCentimeterToBeEqualToOneCentimeter() {
-        Length oneCentimeter = new Length(1, Unit.CENTIMETER);
-        assertEquals(new Length(1, Unit.CENTIMETER), oneCentimeter);
+        assertEquals(centimeter(1), centimeter(1));
     }
 
     @Test
     void expectOneInchToBeEqualToOneInch() {
-        Length oneInch = new Length(1,Unit.INCH);
-        assertEquals(new Length(1,Unit.INCH), oneInch);
+        assertEquals(inch(1), inch(1));
     }
 
     @Test
     void expectOneMeterToBeEqualToOneHundredCentimeter() {
-        Length oneMeter = new Length(1, Unit.METER);
-        Length oneHundredCentimeter = new Length(100, Unit.CENTIMETER);
-        assertEquals(oneMeter, oneHundredCentimeter);
+        assertEquals(meter(1), centimeter(100));
     }
 
     @Test
     void expectOneInchToBeEqualToTwoPointFiveFourCentimeter() {
-        Length oneInch = new Length(1, Unit.INCH);
-        Length convertedInch = new Length(2.54, Unit.CENTIMETER);
-        assertEquals(oneInch, convertedInch);
+        assertEquals(inch(1), centimeter(2.54));
     }
 
 }

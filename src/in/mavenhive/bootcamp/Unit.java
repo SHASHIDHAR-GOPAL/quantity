@@ -1,10 +1,13 @@
 package in.mavenhive.bootcamp;
 
-// Represents a definite magnitude of length.
+// Represents a definite magnitude of a quantity.
 enum Unit {
     CENTIMETER(1.0),
     METER(100.0),
-    INCH(2.54);
+    INCH(2.54),
+    GRAM(1.0),
+    KILOGRAM(1000.0),
+    POUND(453.5);
 
     double conversionFactor;
 
@@ -12,7 +15,7 @@ enum Unit {
         this.conversionFactor = conversionFactor;
     }
 
-    double inCentimeters(double magnitude) {
+    double convert(double magnitude) {
         return magnitude * conversionFactor;
     }
 }
