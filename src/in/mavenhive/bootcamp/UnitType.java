@@ -1,6 +1,6 @@
 package in.mavenhive.bootcamp;
 
-public enum UnitType {
+enum UnitType {
     LENGTH,
     WEIGHT
 }

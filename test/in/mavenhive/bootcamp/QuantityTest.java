@@ -6,7 +6,7 @@ import static in.mavenhive.bootcamp.Quantity.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class QuantityTest {
-    
+
     @Test
     void expectLengthOfTwoMeterToBeEqualToLengthOfTwoMeter() {
         assertEquals(meter(2), meter(2));
@@ -55,5 +55,25 @@ class QuantityTest {
     @Test
     void expectFalseGivenOneKgAndOneMeter() {
         assertNotEquals(kilogram(1), meter(1));
+    }
+
+    @Test
+    void expectOneMeterPlusOneHundredCentimeterToBeEqualToTwoMeter() {
+        assertEquals(meter(2), meter(1).add(centimeter(100)));
+    }
+
+    @Test
+    void expectOneHundredCentimeterPlusOneMeterToBeEqualToTwoHundredCentimeter() {
+        assertEquals(centimeter(200), centimeter(100).add(meter(1)));
+    }
+
+    @Test
+    void expectOneKGPlusOneThousandGramsToBeEqualToTwoKG() {
+        assertEquals(kilogram(2), kilogram(1).add(gram(1000)));
+    }
+
+    @Test
+    void expectOneThousandGramsPlusOneKGToBeEqualToTwoThousandGrams() {
+        assertEquals(gram(2000), gram(1000).add(kilogram(1)));
     }
 }

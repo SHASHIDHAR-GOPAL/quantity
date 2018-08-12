@@ -38,14 +38,23 @@ class Quantity {
         return new Quantity(magnitude, Unit.POUND, UnitType.WEIGHT);
     }
 
+    Quantity add(Quantity that) {
+        if (unitType == that.unitType) return addIfCompatibleUnitTypes(that);
+        return that;
+    }
+
+    private Quantity addIfCompatibleUnitTypes(Quantity that) {
+        double totalMagnitude = unit.convert(magnitude, unit) + that.unit.convert(that.magnitude, unit);
+        return new Quantity(totalMagnitude, unit, unitType);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Quantity that = (Quantity) o;
-
         return unitType == that.unitType &&
-                Double.compare(that.unit.convert(that.magnitude), unit.convert(magnitude)) == 0;
+                Double.compare(that.unit.convert(that.magnitude, unit), unit.convert(magnitude, unit)) == 0;
     }
 
     @Override

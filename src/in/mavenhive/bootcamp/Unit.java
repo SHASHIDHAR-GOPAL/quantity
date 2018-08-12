@@ -15,7 +15,7 @@ enum Unit {
         this.conversionFactor = conversionFactor;
     }
 
-    double convert(double magnitude) {
-        return magnitude * conversionFactor;
+    double convert(double magnitude, Unit finalUnit) {
+        return magnitude * conversionFactor / finalUnit.conversionFactor;
     }
 }
